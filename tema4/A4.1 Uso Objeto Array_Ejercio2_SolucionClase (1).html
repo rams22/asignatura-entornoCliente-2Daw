@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+<body>
+	<h1>Uso del objeto Array</h1>
+    <script>
+        const listaPersonas = [
+            {nombre: "Ana", apellido1: "Álvarez", apellido2: "Cabado", edad: 22},
+            {nombre: "Abel", apellido1: "Liste", apellido2: "Souto", edad: 23},
+            {nombre: "Barca", apellido1: "Pereira", apellido2: "Aguiar", edad: 29},
+            {nombre: "Benito", apellido1: "Riaño", apellido2: "Amenedo", edad: 21}
+        ];
+        
+
+
+        // Apartado a) Obtener array nombres personas utilizando map
+        const apartadoA= listaPersonas.map(persona => `${persona.apellido1} ${persona.apellido2}, ${persona.nombre}`);
+        document.write(`<h5>Listado formato apellidos, nombre</h5>`)
+        apartadoA.forEach(persona => document.write(`${persona}<br>`));
+
+        // b) listado de personas mayores de 25 años, con método filter
+        // Desglosado, pero podríamos encadenar el filter y el map
+        const obtenerMayores = (edad) => {
+            return listaPersonas.filter(persona => persona.edad >= edad);
+        }
+        // función que concatena el nombre y apellidos de una persona
+        const mostrarNombreCompleto = (persona) => {
+            return `${persona.apellido1} ${persona.apellido2}, ${persona.nombre}`;
+        }
+    
+        const mayoresEdad = obtenerMayores(25);
+        document.write(`<h5>Listado mayores de 25 años</h5>`);
+        mayoresEdad.forEach(persona => document.write(`${mostrarNombreCompleto(persona)} <br>`));
+        
+        // Ejercicio 3: 
+        const listaProductos = [
+                {nombre: "arroz", precio: 1, stock: 100},
+                {nombre: "lentejas",  precio: 1.5, stock: 10},
+                {nombre: "garbanzos",  precio: 2, stock: 50},
+                {nombre: "habas",  precio: 2.5, stock: 75}
+        ];
+
+        // Mostrar contenido array
+        function mostrarTablaProductos(lista){
+            let contenido="";
+            contenido = lista.map(elementoLista => {
+//                document.write(elementoLista);
+                for (let propiedad in elementoLista){
+                    //contenido += `${propiedad}: ${elementoLista[propiedad]},`
+                    contenido += ` ${elementoLista[propiedad]},`
+                }
+                contenido += "<br>";
+            });
+            return contenido;
+        }
+        mostrarTablaProductos(listaProductos);
+
+
+        // a) obtener stock de cada producto
+        document.write(`<h5>Stock de cada producto</h5>`);
+        const obtenerStock = listaProductos.map(producto => `${producto.nombre}: ${producto.stock}`);
+        obtenerStock.forEach(producto => document.write(`${producto}<br>`));
+        
+        // b) bajar precio aquellos que haya más de 50 en stock, bajar un 2%
+        const incremento=0.98;
+            
+        // Creo una función que muestre el resultado
+        const mostrarListaPrecios = (lista => lista.forEach(producto => document.write(`${producto.nombre}, ${producto.precio}<br>`)));
+
+        const nuevosPrecios =listaProductos.filter(producto=> producto.stock >50).map((producto) =>{
+            producto.precio= (producto.precio*incremento).toFixed(2);
+            return producto;
+        });
+
+        // desglosado
+        const masDe50 = listaProductos.filter(function (producto){
+            return producto.stock > 50;
+        });
+        
+        document.write(`<h5>Precios para los productos con mas de 50 unidades</h5>`);
+        //document.write(JSON.stringify(masDe50));
+       
+        mostrarListaPrecios(masDe50);
+        // modificamos el precio de los productos con más de 50 unidades en stock (map)
+        const nuevosPreciosMas50 = masDe50.map(producto =>{
+            producto.precio = (producto.precio * incremento).toFixed(2);
+            return producto;
+        });
+
+        document.write(`<h5>NUEVOS PRECIOS para los productos con mas de 50 unidades</h5>`);
+        mostrarListaPrecios(nuevosPreciosMas50);
+
+        // c. Obtener el producto del que tenemos más stock.
+        // en este caso no indicamos segundo parámetro para el método reduce para que el primer parámetro de la función sea el primer elemento
+        // de la lista y así poder sacar ya el máximo y poder devolver el objeto producto entero.
+        const mayorStock = listaProductos.reduce(function (anterior,actual){
+            stockMaximo = (anterior.stock  > actual.stock) ? anterior : actual;
+            return stockMaximo;
+        });
+
+        document.write(`<h5>c) Producto con mayor stock</h5>`);
+//       document.write(JSON.stringify(mayorStock));
+        document.write(`Producto con mayor stock: ${mayorStock['nombre']}: ${mayorStock['stock']}<br>`);
+
+        //d. Obtener la cantidad total de unidades en stock, la suma del stock de todos los productos.
+        // En este caso le pasamos como valor inicial a la función reduce un 0, para inicializar el acumulador sumaStock.
+        const stockTotal =listaProductos.reduce((sumaStock,actual,indice)=> {
+            return sumaStock + actual.stock;
+        },0);
+
+        document.write(`<h5>d) Cantidad total de unidades en stock, la suma del stock de todos los productos</h5>`);
+        document.write(`total stock de todos los productos: ${stockTotal}`);
+
+    </script>
+</body>
+</html>

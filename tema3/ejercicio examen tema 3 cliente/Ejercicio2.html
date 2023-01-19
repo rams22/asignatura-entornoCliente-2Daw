@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <form name="frm_ejercicio2" id="frm_ejercicio2">
+		<div>
+			<label for="fechaPrestamo">Fecha Préstamo</label><input type="date" name="fechaPrestamo" id="fechaPrestamo">
+			<label for="fechaDevo">Fecha Devolución</label><input type="date" name="fechaDevo" id="fechaDevo">	
+		</div>
+		<p><input type="button" id="devolucion" name="devolucion" value="Realizar devolución"></p>
+	</form>
+	<p id="resultado">Aquí se mostrará el resultado del ejercicio al pulsar el botón "Realizar devolución"</p>
+    <script>
+        let resultado;
+        window.onload=function(){
+			document.getElementById("devolucion").addEventListener("click",efectuarDevolucion);
+            resultado = document.getElementById("resultado");
+		}
+        function efectuarDevolucion(){
+            resultado.innerHTML="";
+            let fecha1= document.getElementById("fechaPrestamo").value;
+            let fecha2=document.getElementById("fechaDevo").value;
+            let Fecha1=new Date(fecha1);
+            let Fecha2=new Date(fecha2);
+            let mili1= Fecha1.getDate();
+            let mili2=Fecha2.getDate();
+            comprobarFecha(mili1,mili2);
+            if (dif){
+                document.write(dif*1000*60*60);
+            }
+        }
+ 
+        //compruebo que la fecha de devo es mas alta
+        function comprobarFecha(fecha1,fecha2){
+            if (fecha2>=fecha1){
+                //correcto
+                let dif=fecha2-fecha1;
+                return dif
+            }else if (fecha1>fecha2 && fecha1<= getDate(new Date())){//si la fecha 1 es mayor que la 2 y no efectue el prestamo en un futuro
+                //incorrecto
+                return alert("No se puede efectuar una devolucion antes de realizar el prestamo.La fecha de devolucion debe ser superior a la de prestamo.")
+
+            }else {
+                return alert ("El prestamo no se puede realizar en un dia mayor que el de hoy")
+            }
+        }
+        //
+
+    </script>
+</body>
+</html>

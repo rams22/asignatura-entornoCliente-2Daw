@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+
+        let listaURLs=["http://www.google.es","https://www.edu.xunta.gal/espazoAbalar/","http://edu.xunta.es","https://fernandowirtz.com/","https://www.meteogalicia.gal/","https://www.educacionyfp.gob.es", "https://www.xunta.gal/","http://edu.xunta.es","https://www.edu.xunta.gal/fp/","https://www.xunta.gal/diario-oficial-galicia"];
+        let longitud=listaURLs.length;
+        var i=0;//para poder controlar cada ventana que abra desde el array
+        let ventanas= new Array;//contendra las ventanas que voy abriendo para asi poder cerrarlas
+        setTimeout(abrirVentanaRandon,2000,listaURLs,ventanas,i);
+        function abrirVentanaRandon(listaURLs,ventanas,i){            
+            let aleatorio=(Math.ceil(Math.random()*(longitud))-1);
+            let webAbrir=listaURLs[aleatorio];
+            ventanas[i]=window.open(webAbrir,"","");//creo una ventana en la posicion i
+            setTimeout(ventanas[i].close,4000);            
+        }
+        
+        
+    </script>
+</body>
+</html>

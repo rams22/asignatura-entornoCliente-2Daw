@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+
+        let listaURLs=["http://www.google.es","https://www.edu.xunta.gal/espazoAbalar/","http://edu.xunta.es","https://fernandowirtz.com/","https://www.meteogalicia.gal/","https://www.educacionyfp.gob.es", "https://www.xunta.gal/","http://edu.xunta.es","https://www.edu.xunta.gal/fp/","https://www.xunta.gal/diario-oficial-galicia"];
+        let longitud=listaURLs.length;
+        setInterval(abrirVentanaRandon,2000,listaURLs);
+        function abrirVentanaRandon(listaURLs){            
+            let aleatorio=(Math.ceil(Math.random()*(longitud))-1);
+            let webAbrir=listaURLs[aleatorio];
+            ventanita=window.open(webAbrir,"","");//creo una ventana en la posicion i  
+            //setTimeout(ventanita.close,5000)
+            setTimeout(cerrar,8000,ventanita);
+        }
+        function cerrar(ventanita){
+            ventanita.close();
+        }
+    </script>
+</body>
+</html>

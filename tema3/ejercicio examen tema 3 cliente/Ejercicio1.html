@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        function comprobar(cadena){
+            let minusculas=cadena.toLowerCase();
+            let siIncluye1=minusculas.includes("javascript");
+            let siIncluye2=minusculas.includes("ecmascript");
+            if (siIncluye1 || siIncluye2){
+                document.write (`La frase\"${cadena}\" <b>contiene</b> las cadenas buscadas.<br>`)
+            }else{
+                document.write (`La frase \"${cadena}\" <b>no contiene</b> las cadenas buscadas.<br>`)
+            }
+        }
+
+           
+        
+        // ejemplos de llamada a la función
+        comprobar("Aprendiendo JavaScript");
+
+        comprobar("Los trucos de emascript");
+
+    </script>
+</body>
+</html>

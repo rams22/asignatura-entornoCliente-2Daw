@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea UT3 Evaluable</title>
+    <style>
+        body{
+            background-color: rgb(208, 222, 234);
+        }
+        .botones{
+            background-color: rgb(95, 169, 144);
+        }
+        .cadena{
+            background-color: rgb(132, 145, 55);
+        }
+        .domingos{
+            background-color: antiquewhite;
+        }
+        .cuantosAños{
+            background-color: rgb(187, 68, 94);
+        }
+        fieldset>h1{
+           font-family: 'Courier New', Courier, monospace;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        // asociamos las funciones a los botones
+        window.onload = () => {
+            document.getElementById("crear-nueva").onclick=abrirNueva;
+            document.getElementById("cerrar-ventana").onclick=cerrarVentana;
+            document.getElementById("rellenar-nueva").onclick= rellenarNueva;
+            document.getElementById("rellenar-principal").onclick=rellenarPrincipal;
+            document.getElementById("invertir-cadena").onclick=invertirCadena;
+            document.getElementById("rellenar-domingos").onclick=obtenerDomingos;
+        }
+        var revisar=true;//para revisar si esta escrito y no escribir mas veces. Variable que insertare en la funcion rellenar nueva(). Quizas existan mejores formas de hacerlo pero no se me ocurren ahora mismo.
+        
+        //1º creo la funcion abrir nueva para relacionarla con el boton de id crear-nueva
+        let nuevaVentana=null;
+        
+        function abrirNueva(ancho,alto){
+            const propVentana="left=1100,top=50,width=520,height=320"
+            if (nuevaVentana==null || nuevaVentana.closed){//ojo, no equivocarme con nuevaVentana.close(). Duda,porque con los parentisis no va? a que se debe¿
+                nuevaVentana=window.open("","",propVentana);
+            }else{
+                nuevaVentana.focus();
+            }
+        }
+        //creo la funcion que cierre ventana
+        function cerrarVentana(){
+            
+            if (nuevaVentana) {
+                let confirmacion=confirm("Seguro que deseas cerrar?");
+                if (confirmacion){
+                    revisar=true;
+                    setTimeout("nuevaVentana.close()",3000); 
+                }                
+            }
+            
+        }
+        //creo la funcion rellenar
+        
+       
+        function rellenarNueva(){
+            if (revisar==true){
+                nuevaVentana.document.write("<h3>Ejemplo creación de ventanas</h3><br>");
+                nuevaVentana.document.write("<b>url: </b>"+URL+"<br>");
+                nuevaVentana.document.write("<b>Protocolo:</b>"+location.protocol+"<br>");
+                nuevaVentana.document.write("<b>Location: </b>"+location+"<br>");
+                if (navigator.cookieEnabled){
+                    nuevaVentana.document.write("Las cookies estan habilitadas.<br>");
+                }else {
+                    nuevaVentana.document.write("Las cookies estan desabilitadas.<br>");
+                }
+                revisar=false;//esto hace que aunque pulse el botón no se me autorellene de nuevo.
+        
+            }
+        }
+    //********* d) creo la funcion rellenar principal. Esta llamara a la función escribir() que a si vez llamara a la funcion comprobarComa()
+    function rellenarPrincipal(){
+        document.getElementById("resultado").innerHTML=`<h3>Tarea UT3</h3><hr>${BuenosDiasTardes()}, ${eliminarApellido()}<br>${contarPalabras()}`;
+     }
+   //Esta función devuelve true si tiene la estructura ", " coma seguida de un espacio.
+    function comprobarComa(frase){
+        var comprobacion= frase.includes(", ");
+        return comprobacion; //devuelve boolean
+    }
+    function escribir(){//para escribir esa funcion y junto a la anterior revisar que sea en formato correcto.
+        do {
+         var frase0= prompt ("escribe tu nombre y apellidos de la siguiente manera: \"Nombre, Apellido\".  ");       
+        }while(!comprobarComa(frase0));//mientras la funcion comprobarComa devuelva falso, se repetira, comprobando que asi tenga el formato requerido
+        return frase0;
+    }
+    //creo una funcion para devolver buenos dias o tardes.
+    function BuenosDiasTardes(){
+        let saludo=null;
+        let hora=new Date().getHours();
+        if (hora>14 && hora <=20){
+            saludo="Buenas tardes ";
+        }else if(hora>20){
+            saludo="Buenas noches ";
+        } else{
+            saludo="Buenos dias "
+        }
+        return saludo;        
+    }
+    function eliminarApellido(){
+        let escrib=escribir();
+        let nombreSolo = escrib.split(",");
+        let name=nombreSolo[0];
+        return name
+    }
+    function contarPalabras(){
+        let nombreContar=eliminarApellido();
+        let verdadero=" El nombre se compone de dos palabras";
+        let falso="";
+        let esCompuesto=nombreContar.includes(" ");//Si contiene un espacio esCompuesto me dara true
+        if (esCompuesto){
+            return verdadero;
+        }else{//*****DUDA********si no ponia ese else me daba un undefined. Tiene que devolver algo si o si?
+           return falso;
+        }
+    }
+    //Fin del apartado ****** d) *****
+
+    //apartado e)
+    function invertirCadena(){
+        let cadenaRecogida= document.getElementById("cadena").value;
+        let cadenaRevertida="";//me daba error porque creaba var cadenaRevertida; sin darle valor
+        for (let i=cadenaRecogida.length-1;i>=0;i--){
+            cadenaRevertida= cadenaRevertida.concat(cadenaRecogida[i]);
+        }
+        document.getElementById("reverso").innerHTML=cadenaRevertida;//me da undefined duda.**Mi fallo era que no colocaba el -1 en length, entonces me empezaba en el 4 pero la cadena si i es en el 3, cuenta el 0
+    }
+    function recogeFecha(){
+            let cumple=document.getElementById("fechaNaci").value;//si no pongo value obtengo el tipo
+            let cumpleFecha= new Date(cumple);//tengo que hacer eso para que me lo trate como fecha aunque lo recoja de un input date?
+            let mesCumple= cumpleFecha.getMonth();
+            let diaCumple= cumpleFecha.getDate();
+
+            //***
+            //consigo la fecha actual
+            let hoy = new Date();  
+          
+            // saco el año de esa fecha
+            let añoDeSiguienteCumpleaños = hoy.getFullYear();
+            //inicio error
+            // Compruebo si mi cumpleaños ya paso o va a ser
+            if (hoy.getMonth() == mesCumple && hoy.getDate() > diaCumple) {
+                // Si ya fue lo aumento en uno para asi obtener el del siguiente año
+                añoDeSiguienteCumpleaños = añoDeSiguienteCumpleaños + 1;
+            }
+            //punto error
+
+            // obtengo la fecha de mi siguiente cumpleaños
+            let siguienteCumple = new Date(añoDeSiguienteCumpleaños,mesCumple,diaCumple);
+
+            // Los milisegundos de un dia
+            let milisegDeUnDia =1000 * 60 * 60 * 24;
+            //Obtener los dias que faltan
+            let diasFaltan = Math.ceil((siguienteCumple.getTime() - hoy.getTime())/(milisegDeUnDia));
+
+            //ahora toca saber cuantos años tienes
+            let milisegDeUnAño=milisegDeUnDia*30*12;//no todos lo meses tienen 30 dias pero creo que se complicaria mucho si lo hiciera exacto, anoser que haya algun metodo o herramienta que desconozca
+            let misAños=Math.floor((hoy.getTime() -cumpleFecha.getTime())/milisegDeUnAño);
+            document.getElementById("años").innerHTML=`Tienes ${misAños} años.`
+            if(diasFaltan>0){
+                document.getElementById("faltaCumple").innerHTML=`Faltan ${diasFaltan} para tu cumpleaños.`
+            }else{
+                document.getElementById("faltaCumple").innerHTML=`Este año ya ha sido tu cumpleaños.`
+            }
+            
+                
+        }      
+        //f)Obtener los domingos de una fecha de nacimiento
+
+        function obtenerDomingos(){
+            let cumple=document.getElementById("naciDomingo").value;
+            let cumpleFecha=new Date(cumple);
+            let hoy=new Date();
+            //saco el año de mi nacimiento y el año actual
+            let añoNacimiento= cumpleFecha.getFullYear();
+            let añoHoy= hoy.getFullYear();
+            //***
+            let añoAevaluar;
+            let contadorDomingos=0;
+            let diaSem;
+            while( añoNacimiento<=añoHoy){
+                añoAevaluar=new Date(añoNacimiento,cumpleFecha.getMonth(),cumpleFecha.getDate());
+                //con el metodo getDay() averiguare si ese año era domingo o el dia 6. domingo=0,lunes=1,martes=2...sabado=6
+                diaSem= añoAevaluar.getDay();
+                if (diaSem==0){
+                    contadorDomingos++;
+                }
+                añoNacimiento++;//lo incremento en 1 para evaluar si el siguiente año fue en domingo
+            }
+            document.getElementById("domingos").innerHTML=`Has tenido ${contadorDomingos} cumpleaños en domingo.`;
+        }  
+       
+
+
+    //*********************************************************************
+    </script>
+     
+    <form>
+        <fieldset class="botones" title="botones">
+            <h1>Botones</h1>
+            <input  type="button"  id="crear-nueva"  value="Crear Nueva Ventana">
+            <input  type="button"  id="cerrar-ventana"  value="Cerrar Nueva Ventana">
+            <input  type="button"  id="rellenar-nueva"  value="Rellenar Nueva ventana">
+            <input  type="button"  id="rellenar-principal"  value="Rellenar ventana principal">
+        </fieldset>       
+        <fieldset class="cadena"><p>
+            <h1>Invertir la cadena</h1>
+            <label for="cadena">Escribe la cadena a invertir</label>
+            <input type="text" id="cadena" value="Ejemplo">
+            <input  type="button" id="invertir-cadena" value="invertir Cadena">
+        </p></fieldset>
+        <fieldset class="domingos">
+            <h1>Cuantos cumpleaños has tenido en </h1>
+            <input type="date" value="dia/mes/año" id="naciDomingo">
+            <input  type="button" id="rellenar-domingos"  value= "Obtener cumpleaños en domingo" onclick="obtenerDomingos()">
+        </fieldset>
+    </form>
+    <form>
+        <fieldset class="cuantosAños">
+            <h1>Cuantos años tienes.</h1>
+        <input type="date" value="dia/mes/año" id="fechaNaci">
+        <input type="button" value="enviar" id="envioFecha" onclick="recogeFecha()">
+        <!--<input type="button" value="Cuantos domingos desde tu nacimiento?" id="domingos">-->
+        </fieldset>
+    </form>
+    <p id="resultado"></p><!-- el apartado d)-->
+    <p id="reverso"></p>
+    <p id="domingos"></p><hr>
+    <p id="años"></p>
+    <p id="faltaCumple"></p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            color:red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estas jodido!</h1>
+    <script>
+        var ventana1=null;
+        function abrirVentana(){
+                ventana1= window.open("./trump.jpg","_blank","width=300,height=300");
+                mover();
+        }
+        function mover(){
+            let aleatorioX,aleatorioY;
+            aleatorioX=Math.floor(Math.random() * 1300);
+            aleatorioY=Math.floor(Math.random() * 1300);
+            ventana1.moveBy( aleatorioX,aleatorioY);
+            ventana1.resizeTo(aleatorioX/2,aleatorioY/2);
+        }
+        setInterval(abrirVentana, 1000);       
+    </script>
+
+    
+</body>
+</html>

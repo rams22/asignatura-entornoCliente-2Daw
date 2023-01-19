@@ -1,0 +1,55 @@
+<!DOCTYPE HTML> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+	<title>Trabajando con el objeto Window</title> 
+</head>
+<body>
+	<button onclick="crearVentana(400,200)">Abrir ventana</button>
+	<button onclick="desplazarVentana(100,100)">Desplazar ventana</button>
+	<button onclick="maximizarVentana()">maximizar</button>
+	<button onclick="cerrarVentana()">Cerrar ventana</button>
+
+	<script>
+		let ventana1=null;
+		function crearVentana (ancho, alto){
+			if (!ventana1 || ventana1.closed){
+				ventana1=window.open("../broma/trump.jpg",""/*"_self"*/,"height="+alto+",width="+ancho);
+			} else if(ventana1){
+				ventana1.focus();
+			}
+		}
+
+		//cerrar la ventana (comprobando antes si está abierta para control de errores
+		function cerrarVentana(){
+			if (ventana1){
+				ventana1.close();
+				ventana1=null;//***********como arriba puse el o, en el if de la linea 16 creo que no seria necesario.
+			}
+		}
+
+		//Mueve la ventana los valores indicados en los parámetros de la función.
+		function desplazarVentana(x, y) {
+			
+				ventana1.moveBy(333, 333);
+				ventana1.focus();
+			
+		}
+		
+		// Mostrar todas las propiedade de la ventana creada
+		function mostrarPropiedades(){
+			document.write(ventana1);
+		}
+
+		// Maximizar la ventana creada
+		function maximizarVentana(){
+			ventana1.resizeTo(screen.width, screen.height);
+		}
+		
+		setTimeout(crearVentana, 2000, 400,200);
+
+		
+		
+</script>	
+</body>
+</html>

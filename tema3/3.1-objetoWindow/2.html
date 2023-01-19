@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio2: string</title>
+</head>
+<body>
+    <form>
+        Introduce nombre y apellidos: <input type="text" id="name">
+        <input type="button" value="enviar" onclick="cogeNombre()">
+    </form>
+    <p id="nombre"><i>"Tu nombre"</i></p>
+    <script>
+        function cogeNombre(){
+            let nombre=document.getElementById("name").value;
+            document.getElementById("nombre").innerHTML=nombre;
+            return nombre;
+        }
+        //contar numero de caracteres sin espacios principio ni final
+        function contar(nombre){
+            
+        }
+
+    </script>
+    
+</body>
+</html>
