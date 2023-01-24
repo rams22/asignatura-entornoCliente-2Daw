@@ -18,6 +18,24 @@
                 document.getElementById("cliente").checked = !(document.getElementById("cliente").checked);
             }
 
+            //marcar todos
+            const marcarçtodos=()=>{
+                
+            }
+
+            //****************
+
+            //desmarcar todos
+            const desmarcarTodos=()=>{
+                let matricula= frmCheck.matricula;//todos los campos del fueldset matricula
+                //matricula es todo lo de dentro del fieldset
+                for (let i=0,len=matricula.elements.length;len<i;i++){
+                    
+                }
+
+            }
+
+            //**************
             const cambiarTodos = (e) =>{
                 let modulos = document.getElementsByName("modulos"); // recuperamos el grupo de opciones relativo a los modulos 
                 let estadoNuevo = e.currentTarget.checked; // recuperamos el estado del checbox principal para ponerlos todos al mismo estado 
