@@ -1,0 +1,43 @@
+
+<!DOCTYPE  html>
+<html>
+    <head>
+        <script type="text/javascript">
+            // variables globales;
+            let frmCheck;//la variable del formulario que se llama frmcheck
+            //evento que controla que el dom este 
+            document.addEventListener("DOMContentLoaded", iniciar);
+
+            const iniciar () {
+                frmCheck= document.getElementById("frmCheck"); // recuperamos el formulario
+                document.getElementById("marcarTodos").addEventListener("click",cambiarTodos);
+            }
+
+            // Modificar el estado de un checkbox a través de un botón
+            const marcar = () => {
+                document.getElementById("cliente").checked = !(document.getElementById("cliente").checked);
+            }
+
+            const cambiarTodos = (e) =>{
+                let modulos = document.getElementsByName("modulos"); // recuperamos el grupo de opciones relativo a los modulos 
+                let estadoNuevo = e.currentTarget.checked; // recuperamos el estado del checbox principal para ponerlos todos al mismo estado 
+                modulos.forEach(checkBox => {
+                    checkBox.checked = estadoNuevo;
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frmCheck" id="frmCheck" action=""><!--Aqui se crea el formulario-->
+            <fieldset name="matricula">
+                <legend>Indica los módulos en los que estás matriculado</legend>        
+                <label for="cliente">Desarrollo web entorno cliente</label><input type="checkbox" id="modulos" name="modulos" value="Desarrollo web entorno cliente">
+                <label for="servidor">Desarrollo web entorno servidor</label><input type="checkbox" id="modulos" name="modulos" value="Desarrollo web entorno servidor">
+                <label for="interfaces">Diseño de interfaces web</label><input type="checkbox" id="modulos" name="modulos" value="Diseño de interfaces web">
+                <label for="cliente">Implantación de aplicaciones</label><input type="checkbox" id="modulos" name="modulos" value="Implantación de aplicaciones">
+            </fieldset>
+        </form>
+        <input type="button" name="marcarTodos" id="CambiarTodos" value="Marcar">
+        <input type="button" name="desmarcarTodos" id="DesmarcarTodos" value="Desmarcar">
+    </body>
+</html>

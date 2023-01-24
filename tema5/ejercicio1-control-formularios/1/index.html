@@ -1,0 +1,33 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <meta  http-equiv="content-type"  content="text/html;charset=utf-8">
+        <title>DWEC05 - Propiedad VALUE de un objeto de tipo texto.</title>
+        <script  type="text/javascript">
+            const iniciar = () => {//primero inicializo la variable antes del domcontentloader
+                document.getElementById("nombre").addEventListener("blur",convertirMayusculas);
+            }
+            document.addEventListener("DOMContentLoaded", iniciar);//equivale a load,lo que hace es comprobar, cuando se abre la pagina,-->
+//onload es que todos los recursos de la pagina esten disponibles en su totalidad,mientras que domocntenloader es que este disponible, aunque no cargara
+            const convertirMayusculas = () => {
+                /* En este ejemplo accedemos a la propiedad value de un objeto con id nombre y le asignamos 
+                    su contenido actual pero convertido a mayúsculas con el método toUpperCase() del objeto String.
+                */
+                document.getElementById("nombre").value=document.getElementById("nombre").value.toUpperCase();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Propiedad VALUE de un objeto INPUT de tipo TEXT</h1>
+        <p> Convertir el contenido de un campo de tipo texto (propiedad value) a mayúscualas al perder el foco</p>
+        <form id="formulario" name="formulario" action="">
+            <p>
+                <label for="nombre">Nombre y Apellidos: </label>
+                <input  type="text"  id="nombre"  name="nombre"  value="" size="30">
+            </p>
+            <p>
+                Introduce tu Nombre y Apellidos y haz click fuera del campo.
+            </p>
+        </form>
+    </body>
+</html>
