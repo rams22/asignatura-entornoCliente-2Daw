@@ -19,7 +19,7 @@ miLlamada([
     "edad": 2,
     "color": "negro",
     "veneno":false,
-    "imagen":"/ejercicioJS/animales/ant.jpg",
+    "imagen":"./animales/ant.jpg",
     "caracteristicas": [],
     "carnivoro":true,
     "herbivoro":false

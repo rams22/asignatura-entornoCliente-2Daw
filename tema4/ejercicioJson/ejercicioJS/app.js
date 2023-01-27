@@ -17,8 +17,10 @@ var miLlamada=function(datos){//js moderno ser: var miLlamada=datos=>{}
     html+=`<img src='${animal.imagen}'></img>
             <h2>Nombre: ${animal.especie} <br>Tipo: ${animal.familia}</h2>`; 
     })
-   document.getElementById("resultado").innerHTML=html;//meto la varble
+   document.getElementById("resultado").innerHTML=html;//aqui todo lo que cree antes 
+    console.log(app);
 };
+
 //mostrar cokie
 document.getElementById("ver").addEventListener('click',mostrar)
 function mostrar(){
@@ -27,8 +29,6 @@ function mostrar(){
 
 //crear cookie
 document.getElementById("crear").addEventListener("click",fabricar);
-
-
 function fabricar(){
     let nombre=document.getElementById("nombre").value;
     let valor=document.getElementById("valor").value;

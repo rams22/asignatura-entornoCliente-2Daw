@@ -1,0 +1,53 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <meta  http-equiv="content-type"  content="text/html;charset=utf-8">
+        <title>Uso de la palabra reservada this</title>
+
+        <script  type="text/javascript">
+            const iniciar = ()=>{
+                const inputs=document.getElementsByTagNameNS("input")
+                //3)si aqui usara un for normal lo arreglaba
+                for
+                inputs.forEach(imput => {
+                    input.addEventListener("click",identificar); //1)aqui tengo un evento y cada vez que ocurre se crea un objeto evento                   
+                });
+                // asociamos al evento submit del elemento formulario la función de validación en la linea 39
+                //frmSelect.consultar.addEventListener("click", consultar);//si uso el nombre como puede haber varios entonces me devuelve un array y tendria que indicar cual con un corchete
+                document.getElementById("provincias").addEventListener("change", consultar);
+            }
+            document.addEventListener("DOMContentLoaded", iniciar);//el dom iniciar
+            
+            const identificar = (evento) => {//2)en vez del objeto iria el evento
+                let objeto=evento.target;
+                let nombre = objeto.name;
+                let id = objeto.id;
+                let valor = objeto.value;
+                let tipo = objeto.type;
+                alert(`Datos del campo pulsado:\n\nNombre: ${nombre}\nID: ${id}\nValor: ${valor}\nTipo: ${tipo}`);
+            }
+        </script>
+
+    </head>
+    <body>
+        <h1>Trabajando con this</h1>
+        <form id="formulario">
+            <p>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre" value="Bob"/>
+                <label for="apellidos">Apellidos: </label>
+                <input type="text" name="apellidos" id="apellidos" value="Esponja"/>
+                <label for="edad">Edad: </label>
+                <input type="number" name="edad" id="edad" value="18"/>
+                <label for="pais">Pais: </label>
+                <label for="pais1">España: </label>
+                <input type="radio" name="pais" id="pais1" value="ES"/>
+                <label for="pais2">Francia: </label>
+                <input type="radio" name="pais" id="pais2" value="FR"/>
+            </p>
+            <p>
+                Haga click en cada uno de los campos para ver más información.
+            </p>
+        </form>
+    </body>
+</html>
