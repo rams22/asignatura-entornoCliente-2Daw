@@ -1,0 +1,19 @@
+img{
+    weight: 200px;
+    height: 200px;
+}
+body{
+    background-color: rgb(210, 182, 42);
+}
+p,h1,h2,h3{
+    color:black;
+}
+.bloque{
+    display:inline;
+}
+table{
+    align-items: center;
+    border-style: double;
+    background-color: rgb(210, 182, 42);
+}
+

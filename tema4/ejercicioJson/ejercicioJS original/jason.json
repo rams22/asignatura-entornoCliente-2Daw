@@ -1,0 +1,55 @@
+[{
+    "tipo": "insecto",
+    "status": true,
+    "miembros": [
+      {
+        "nombre": "tarantula",
+        "edad": 3,
+        "color": "marron",
+        "veneno":true,
+        "caracteristicas": [
+          "tejedora",
+          "veneno"
+        ]
+      },
+      {
+        "nombre": "araña_negra",
+        "edad": 2,
+        "color": "negro",
+        "veneno":false,
+        "caracteristicas": []
+      },
+      {
+        "nombre": "Escorpion",
+        "edad": 4,
+        "color": "negro",
+        "veneno":true,
+        "caracteristicas": [
+          "duro",
+          "tenazas",
+          "cola"
+        ]
+      }
+    ]
+
+  },
+  {
+    "tipo": "mamifero",
+    "status": true,
+    "miembros": [
+        {
+            "nombre":"lobo",
+            "edad":3,
+            "color":"blanco",
+            "dieta":"carnivoro"    
+        },
+        {
+            "nombre":"lobo",
+            "edad":2,
+            "color":["blanco","negro"],
+            "dieta":"vegetal"  
+        }
+    ]
+
+  }
+]

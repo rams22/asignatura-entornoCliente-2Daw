@@ -1,0 +1,82 @@
+[
+  {
+    "especie": "araña",
+    "familia": "insecto",
+    "edad": 3,
+    "color": "marron",
+    "veneno":true,
+    "imagen":"/ejercicioJS/animales/spider.jpg",
+    "caracteristicas": [
+      "tejedora",
+      "veneno"
+    ],
+    "carnivoro":true,
+    "herbivoro":false
+  },
+
+  {
+    "especie": "hormiga",
+    "edad": 2,
+    "color": "negro",
+    "familia": "insecto",
+    "veneno":false,
+    "imagen":"/ejercicioJS/animales/ant.jpg",
+    "caracteristicas": [],
+    "carnivoro":true,
+    "herbivoro":false
+  },
+
+  {
+    "especie": "Escorpion",
+    "edad": 4,
+    "color": "negro",
+    "familia": "insecto",
+    "imagen":"/ejercicioJS/animales/scorpion.jpg",
+    "veneno":true,
+    "caracteristicas": [
+      "duro",
+      "tenazas",
+      "cola"
+    ],
+    "dieta":{
+      "carnivoro":true,
+      "herbivoro":false
+    }
+  },
+  
+
+  {
+    "especie":"lobo",
+    "familia": "mamifero",
+    "edad":3,
+    "color":"blanco",
+    "imagen":"/ejercicioJS/animales/lobo.jpg",
+    "dieta":{
+      "carnivoro":true,
+      "herbivoro":false
+    }   
+  },
+  
+  {
+    "especie":"vaca",
+    "familia": "mamifero",
+    "edad":2,
+    "color":["blanco","negro"],
+    "imagen":"/ejercicioJS/animales/cow.jpg",
+    "dieta":{
+      "carnivoro":false,
+      "herbivoro":true
+    }
+  },
+
+  {
+    "especie":"cerdo",
+    "familia": "mamifero",
+    "edad":2,
+    "color":["rosa"],
+    "imagen":"/ejercicioJS/animales/pig.jfif",
+    "dieta":{
+      "carnivoro":true,
+      "herbivoro":true
+    }    
+}]
