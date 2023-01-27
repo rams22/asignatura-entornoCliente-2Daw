@@ -5,7 +5,7 @@
         <title>DWEC05 - Propiedad VALUE de un objeto de tipo texto.</title>
         <script  type="text/javascript">
             const iniciar = () => {//primero inicializo la variable antes del domcontentloader
-                document.getElementById("nombre").addEventListener("blur",convertirMayusculas);
+                document.getElementById("nombre").addEventListener("blur",convertirMayusculas);//el evento blur es lanzado cuando el elemento ha perdido su foco
             }
             document.addEventListener("DOMContentLoaded", iniciar);//equivale a load,lo que hace es comprobar, cuando se abre la pagina,-->
 //onload es que todos los recursos de la pagina esten disponibles en su totalidad,mientras que domocntenloader es que este disponible, aunque no cargara
