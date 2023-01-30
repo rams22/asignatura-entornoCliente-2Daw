@@ -1,0 +1,29 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <meta  http-equiv="content-type"  content="text/html;charset=utf-8">
+        <title>DWEC05 - Trabajando con storage</title>
+        <style>
+
+        </style>
+        <script  type="text/javascript">
+            if (typeof(Storage)!=="undefined"){
+                //guardare
+                localStorage.setItem("nombre","rams22");
+                //ahora recupero
+                document.getElementById("guardar1").innerHTML=localStorage.getItem("nombre");
+            }else{
+                document.getElementById("guardar1").innerHTML="No hay ningun storage o su navegador no lo soporta";
+            }
+        </script>
+
+
+    </head>
+    <body>
+        <h2>Web Storage</h2>
+        <h4>Web storage</h4>
+        <p>Aqui mostrare un webstorague</p>
+        <div id="guardar1"></div>
+
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onchange</title>
+
+</head>
+<body style="background-color: aquamarine;">
+    <h1>onchange</h1>
+    <span >Selecciona tu preferido</span>
+    <select  id="seleccionador" onchange="seleccionAnimal()">
+        <option value="perro">Perro</option> <!--En value va el valor interno, y entre las etiquetas el visible-->
+        <option value="oso">Oso</option>
+        <option value="gato">Gato</option>
+        <option value="cocodrilo">Crocodilo</option>
+    </select>
+    <br>
+    <span id="spanId">Seleccionado</span>
+
+    <script src="script.js"></script>
+</body>
+</html>
