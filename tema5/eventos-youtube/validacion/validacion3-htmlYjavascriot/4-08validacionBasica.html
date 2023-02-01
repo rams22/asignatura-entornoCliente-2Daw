@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="validacion.js"></script>
+    <style>
+        .error{
+            border: solid 2px red;
+        }
+    </style>
+
+</head>
+<body>
+    <form action="procesar.php" method="post" id="miFormulario">
+
+        Nombre*:<input type="text" name="nombre" id="Nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="introduce de 2 a 15 letras" required/><!--pattern es para que solo meta letras y entre 2 y 15 caracteres, con title es lo que muestre si introduce algo mal-->
+        <br><br>
+        Telefono: <input type="text" name="telefono" id="Telefono" value="34" pattern="[0-9]{9}" title="numero incorrecto">
+        <hr>
+        Edad*: <input type="number" id="Edad" min="18" max="100" title="introduce entre 18 y 100" required>
+        <hr>
+        Sexo:<input type="radio" name="sexo" value="H">Hombre<input type="radio" name="sexo" value="M">Mujer
+        <br>
+        mayor de 18: <input type="checkbox" name="mayor" id="Mayor" checked>
+        <hr>
+        <input type="submit" value="enviar" id="Enviar">
+        <input type="reset" value="borrar" id="Borrar">
+        <p id="MensajeError" ></p><!--Aqui apareceran los mensajes de error con el innerhtml-->
+    </form>
+   
+
+    
+</body>
+</html>

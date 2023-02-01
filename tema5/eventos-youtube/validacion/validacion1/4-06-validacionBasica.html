@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario</title>
     <script src="validacion.js"></script>
 </head>
 <body>
     <form action="procesar.php" method="post" id="miFormulario">
+
         Nombre:<input type="text" name="nombre" id="Nombre">
-        Telefono: <input type="text" name="telefono" id="Telefono">
+        <br><br>
+        Telefono: <input type="text" name="telefono" id="Telefono" value="34">
+        <hr>
+        Dia: <input type="text" id="Dia" maxlength="2">Mes:<input type="text" id="Mes">Año:<input type="text" id="Anio">
         <hr>
         Sexo:<input type="radio" name="sexo" value="H">Hombre<input type="radio" name="sexo" value="M">Mujer
         <br>
         mayor de 18: <input type="checkbox" name="mayor" id="Mayor" checked>
         <hr>
         <input type="submit" value="enviar" id="Enviar">
-        <input type="reset" value="reset" id="Reset">
+        <input type="reset" value="borrar" id="Borrar">
     </form>
 
 
