@@ -1,0 +1,15 @@
+html{font-size: 16px;}
+*{box-sizing:border-box;}
+
+.imagen-ampliada{
+    width: 19rem;;
+    height: 12.5rem;;
+    border:1px solid #ff0000;
+    margin: 2rem 0;
+}
+[class *= "miniatura-"]{
+    width:9.5rem;
+    height: 6.5rem;
+    border:1px solid #0000ff;
+    float:left;
+}

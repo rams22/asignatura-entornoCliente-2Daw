@@ -1,4 +1,4 @@
-document.getElementById("seleccionador").addEventListener("onchange",seleccionAnimal)
+document.getElementById("seleccionador").addEventListener("onchange",seleccionAnimal);
 
 
 function seleccionAnimal(){
