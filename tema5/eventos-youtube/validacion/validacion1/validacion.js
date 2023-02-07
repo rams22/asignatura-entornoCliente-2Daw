@@ -25,11 +25,12 @@ var formulario_2=document.getElementsByTagName("form")[0];
 window.onload=iniciar; //cuando el dom cargue activare la funcion iniciar
 
 function iniciar(){//asociara un evento a la pulsacion del boton enviar
-        document.getElementById("Enviar").addEventListener("click",validarTodas,false);//esta funcion comprobara que todos los campos del formu son correctos. Le paso la funcion validar
+        document.getElementById("Enviar").addEventListener("click",validarTodas,false);//esta funcion comprobara que todos los campos del formu son correctos.->
+        // ->Le paso la funcion validar
 
 }
 
-//el nombre
+//comprobar el nombre
 function validarNombre(){
         var elemento =document.getElementById("Nombre");
         if (elemento.value==""){//si elemento es vacio muestra error
@@ -38,7 +39,7 @@ function validarNombre(){
         }
         return true;
 }
-
+//comprobar el telefono
 function validarTelefono(){
         //comprobare que lo de dentro solo sea numero
         var elemento =document.getElementById("Telefono");//?podria poner .value?? para abajo solo poner elemento?
