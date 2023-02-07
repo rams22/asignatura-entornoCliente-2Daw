@@ -24,7 +24,8 @@ function validarEdad(){
     }
     return true;
 }
-function validarEdad(){
+//*************************mi error es llamar validarEdad a validar telefono */
+function validarTelefono(){
     var elemento=document.getElementById("Telefono");
     if (!elemento.checkValidity()){
         error(elemento);//llamo la funcion error con el parametro elemento
@@ -35,23 +36,23 @@ function validarEdad(){
 
 function validar(e){
     borrarError();//para eliminar lo malo y que se vaya el rojo
-    if (validarNombre() && validarEdad() && validarTelefono() && confirm("Pulsa aceptar para enviar formulario")){
+    if (validarNombre() && validarTelefono() && validarEdad()  && confirm("Pulsa aceptar para enviar formulario")){
         return true;
     }else{
-        e.preventDefault();
+        e.preventDefault();//evitamos el evento enviar formu
         return false;
     }
 }
 
 function error(elemento){
-    document.getElementById("MensajeError").innerHTML=elemento.validationMessage;
+    document.getElementById("MensajeError").innerHTML=elemento.validationMessage;//validationMessage ya existe es prdefinido
     elemento.className="error"; //que el elemento coja la clase error para sacar el rojo del css
     elemento.focus();//aqui obtendra el focus donde el error
 }
 
 function borrarError(){
-    var formulario=document.forms[0];//cojo el primer formulario
+    var formulario=document.forms[0];//cojo el primer formulario(hay otras como get by id...)
     for (var i=0;i<formulario.elements.length;i++){
-        formulario.elements[i].className="";//qie nos borre la clase, para que???***para que ya no salga en rojo
+        formulario.elements[i].className="";//que nos borre la clase, para que???***para que ya no salga en rojo
     }
 }
