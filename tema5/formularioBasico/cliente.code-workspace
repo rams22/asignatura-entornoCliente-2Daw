@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../../../../daw2/cliente"
+		},
+		{
+			"path": "../../../daw2/entorno-cliente/tema4/ejercicioJson"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../tema4/ejercicioJson"
+		},
+		{
+			"path": "../../../Diseno-de-interfaces-web/tema5/ejercicio-5.5"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "tema5",
+		"liveServer.settings.port": 5501
+	}
+}

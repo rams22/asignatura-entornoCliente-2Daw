@@ -28,7 +28,7 @@
     <h1>Validacion de formularios con html5 y javascrip</h1>
     <form action="procesar.php" method="post" id="miFormulario">
 
-        Nombre*:<input type="text" name="nombre" id="Nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="introduce de 2 a 15 letras" required/><!--pattern es para que solo meta letras y entre 2 y 15 caracteres, con title es lo que muestre si introduce algo mal-->
+        Nombre*:<input type="text" name="nombre" id="Nombre" pattern="[A-Za-z]{2,15}" title="introduce de 2 a 15 letras" ><span></span><!--pattern es para que solo meta letras y entre 2 y 15 caracteres, con title es lo que muestre si introduce algo mal-->
         <br><br>
         Telefono: <input type="text" name="telefono" id="Telefono"  pattern="[0-9]{9}" title="numero incorrecto">
         <hr>

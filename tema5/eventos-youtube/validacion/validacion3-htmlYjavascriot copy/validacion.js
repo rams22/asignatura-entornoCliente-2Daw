@@ -1,18 +1,31 @@
+//las finciones que quiera importar debo ponerlas aqui
+import { comprobarNombre } from "./funciones";
+
 window.onload=iniciar;
 
 function iniciar(){
     document.getElementById("Enviar").addEventListener("click",validar,false);
 }
 
+function validar(e){
+    borrarError();//para eliminar lo malo y que se vaya el rojo en las segundas interacciones
+    if (validarNombre() && validarTelefono() && validarEdad() && confirm("Pulsa aceptar para enviar formulario")){
+        return true;
+    }else{
+        e.preventDefault();
+        return false;
+    }
+}
 
 function validarNombre(){
     var elemento=document.getElementById("Nombre");
-    //comprobare que la validacion sea correcta con checkValidity
-    if (!elemento.checkValidity()){//checkvalidity asegurara que sea correcta la validacion
-        error(elemento);//accede a la funcion error y ahi le dire donde esta el error al usuario
-        return false;
+    //le paso el nombre por parametro a la funcion importada
+    let sms=comprobarNombre(elemento.value);//y el resultaod lo recojo en sms
+    if (sms!=""){
+        document.querySelector("#nombre+span").textContent=sms;//aqui le paso la variable sms que cogera el valor de la funcion
+    }else if(sms=""){
+        return true;
     }
-    return true;
 }
 
 function validarEdad(){
@@ -32,15 +45,7 @@ function validarTelefono(){
     return true;
 }
 
-function validar(e){
-    borrarError();//para eliminar lo malo y que se vaya el rojo
-    if (validarNombre() && validarTelefono() && validarEdad() && confirm("Pulsa aceptar para enviar formulario")){
-        return true;
-    }else{
-        e.preventDefault();
-        return false;
-    }
-}
+
 function error(elemento){
     document.getElementById("MensajeError").innerHTML=elemento.validationMessage;
     elemento.className="error"; //que el elemento coja la clase error para sacar el rojo del css
