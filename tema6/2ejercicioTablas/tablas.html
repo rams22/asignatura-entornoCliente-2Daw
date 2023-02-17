@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Trabajo con tablas: DOM</title>
+
+</head>
+<body>
+<h1>Trabajo con tablas: DOM</h1>
+<table id="miTabla" border="1" cellspacing="1" cellpadding="1">
+    <tr>
+        <td>Ciclo</td>
+        <td>Curso</td>
+        <td>Modulo</td>
+    </tr>
+    <tr>
+        <td>DAW</td>
+        <td>Primero</td>
+        <td>Programación</td>
+    </tr>
+    <tr>
+        <td>DAW</td>
+        <td>Primero</td>
+        <td>Bases de Datos</td>
+    </tr>
+    <tr>
+        <td>DAW</td>
+        <td>Primero</td>
+        <td>Entornos</td>
+    </tr>
+    <tr>
+        <td>DAW</td>
+        <td>Segundo</td>
+        <td>Desarrollo en entorno Servidor</td>
+    </tr>
+    <tr>
+        <td>DAW</td>
+        <td>Segundo</td>
+        <td>Desarrollo en entorno Cliente</td>
+    </tr>
+</table>
+<div>
+    <form>
+        <h4>Pintar el título (naranja) y las filas (alternativamente gris/blanco) </h4>
+        <input type="button" id="pintarTitulo" value="Pintar el título"/>
+        <input type="button" id="pintarFilas" value="Pintar las filas" />
+    </form>
+</div>
+<h4>Añadir líneas</h4>
+<div>
+    <form name="formularioAgregar">
+        <input type="button" id="anadirFilaInicio" value="Añadir una fila (inicio de tabla)" />
+        <input type="button" id="anadirFilaFinTabla" value="Añadir una línea (fin de tabla)" />
+    </form>
+</div>
+<h4>Eliminación de líneas</h4>
+<div>
+    <form name="formularioEliminación">
+        <label>Nº fila a eliminar (a partir de 1) : <input type="txt" id="numLinea" value="" />
+        IES FERNANDO WIRTZ SUÁREZ
+        Rúa Caballeros, 1 15006 A Coruña - Telf. 881 960 260
+        www.fernandowirtz.com - ies.fernando.wirtz@edu.xunta.es
+        3
+        <input type="button" id="eliminarFila" value="Eliminar la fila"/>
+    </form>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>
