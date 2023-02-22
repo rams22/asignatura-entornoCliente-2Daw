@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../Diseno-de-interfaces-web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "asignatura-entornoCliente-2Daw"
+	}
+}

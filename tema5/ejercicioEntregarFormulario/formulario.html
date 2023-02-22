@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>DWEC05 - Validación de fomularios</title>
         <style type="text/css">
+            @import url("./estilo.css");
         label{
             width: 170px;
             float:left;
@@ -54,30 +55,41 @@
             border: solid 2px #FF0000;
         }
         </style>
-        <script src="./scriptValidacion.js"></script>
     </head>
     <body>
         <fieldset>
             <legend>DWEC05 - Formulario Datos</legend>
             <form name="formulario" id="formulario" action="#" method="get">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" />
-                <label for="email">E-mail:</label>
-                <input name="email" type="text" id="email" />
-                <label for="provincia">Provincia:</label>
-                <select name="provincia" id="provincia">
-                    <option value="0" selected="selected">Seleccione Provincia</option>
-                    <option value="C">A Coruña</option>
-                    <option value="LU">Lugo</option>
-                    <option value="OU">Ourense</option>
-                    <option value="OU">Pontevedra</option>
-                </select>
-                <label for="fecha">Fecha Nacimiento:</label>
-                <input name="fecha" type="text" id="fecha" />
-                <label for="telefono">Teléfono:</label>
-                <input name="telefono" type="text" id="telefono" maxlength="9"/>
-                <input type="checkbox" name="condiciones" id="condiciones" value="aceptadas"/>
-                <label for="condiciones">He leído y acepto las condiciones</label>
+                <div id="caja_nombre">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" />
+                </div>
+                <div id="caja_email">
+                    <label for="email">E-mail:</label>
+                    <input name="email" type="text" id="email" />
+                </div>
+                <div id="caja_provincia">
+                    <label for="provincia">Provincia:</label>
+                    <select name="provincia" id="provincia">
+                        <option value="0" selected="selected">Seleccione Provincia</option>
+                        <option value="C">A Coruña</option>
+                        <option value="LU">Lugo</option>
+                        <option value="OU">Ourense</option>
+                        <option value="OU">Pontevedra</option>
+                    </select>
+                </div>
+                <div id="caja_fecha">
+                    <label for="fecha">Fecha Nacimiento:</label>
+                    <input name="fecha" type="text" id="fecha" />
+                </div>
+                <div id="caja_telefono">
+                    <label for="telefono">Teléfono:</label>
+                    <input name="telefono" type="text" id="telefono" maxlength="9"/>
+                </div>
+                <div>
+                    <input type="checkbox" name="condiciones" id="condiciones" value="aceptadas"/>
+                    <label for="condiciones">He leído y acepto las condiciones</label>
+                </div>
                 <input type="button" name="enviar" id="enviar" value="Enviar" />
                 <input type="button" name="limpiar" id="limpiar" value="Limpiar" />
             </form> 
@@ -86,5 +98,6 @@
             <div id="datos"></div>
 
         </fieldset>
+        <script src="./scriptValidacion.js"></script>
     </body>
 </html>
