@@ -5,18 +5,18 @@
 }
 /* validacion*/
 .formulario_grupo-correcto {
-	color: #1ed12d;
+	color: gree;
 	opacity: 1;
 }
-.formulario_grupo-incorrecto {
-	color: #bb2929;
+.formulario-incorrecto {
+	color: red;
 }
 
 .formulario_grupo-incorrecto {
-	color: #bb2929;
+	color: red;
 	opacity: 1;
 }
 
 .formulario_grupo-incorrecto  {
-	border: 3px solid #bb2929;
+	border: 3px solid red;
 }
