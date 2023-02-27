@@ -1,0 +1,19 @@
+.formulario_input:focus {
+	outline: 2px solid #0075FF;
+	
+}
+/* validacion*/
+
+.formulario_incorrecto{
+	font-weight: bolder;
+}
+.formulario_incorrecto > input{
+	border: 3px solid red;
+}
+.formulario_correcto >input{
+	border: 4px solid green;
+	background-color: #abc7e7;
+}
+.activar_mensajeError{
+	display:block;
+}
